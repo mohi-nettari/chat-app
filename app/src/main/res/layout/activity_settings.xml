@@ -44,10 +44,9 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="User Name :"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/usernameet"
@@ -74,7 +73,7 @@
                 android:layout_weight="1"
                 android:text="About :       "
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/aboutet"
@@ -95,7 +94,7 @@
             android:layout_marginStart="120dp"
             android:layout_marginTop="5dp"
 
-            android:layout_marginEnd="0dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="0dp"
             android:background="@drawable/save_btn"
             android:text="Save"

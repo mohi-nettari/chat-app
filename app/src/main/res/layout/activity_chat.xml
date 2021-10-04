@@ -30,6 +30,17 @@
      >
 
 
+
+        <ImageView
+            android:id="@+id/sendfiles"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/document"
+            app:tint="@color/colorPrimary" />
+
         <EditText
             android:id="@+id/sendmsget"
             android:layout_width="wrap_content"
@@ -48,15 +59,21 @@
             android:layout_height="50dp"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
-            android:background="@drawable/round_shape"
             android:src="@drawable/send_arrow"
+            android:background="@drawable/round_shape"
             app:tint="@color/colorPrimary" />
+
+
+
     </LinearLayout>
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
@@ -113,6 +130,7 @@
                 app:layout_constraintVertical_bias="0.0"
                 app:tint="@color/white" />
 
+
             <ImageView
                 android:id="@+id/backarrow"
                 android:layout_width="20dp"
@@ -120,8 +138,8 @@
                 android:src="@drawable/arrow_left"
                 app:tint="@color/white"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="1dp" />
-
+                tools:layout_editor_absoluteX="2dp"
+                tools:layout_editor_absoluteY="2dp" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_pic"
@@ -134,6 +152,23 @@
                 app:civ_border_width="2dp"
                 app:layout_constraintStart_toEndOf="@+id/backarrow"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/state"
+                android:layout_width="16dp"
+                android:layout_height="20dp"
+                android:src="@drawable/isonline1"
+                app:tint="@color/grey"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/backarrow"
+                app:layout_constraintEnd_toEndOf="@+id/profile_pic"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/backarrow"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="MissingConstraints" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

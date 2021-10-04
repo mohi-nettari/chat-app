@@ -50,7 +50,7 @@ public class ChateAdapter extends RecyclerView.Adapter  {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if(viewType == SENDER_VIEW_TYPE){
             View view = LayoutInflater.from(context).inflate(R.layout.sample_sender,parent,false);
-        return new senderViewHolder(view);
+            return new senderViewHolder(view);
         }
         else {
             View view = LayoutInflater.from(context).inflate(R.layout.sample_reciever,parent,false);
@@ -96,12 +96,29 @@ public class ChateAdapter extends RecyclerView.Adapter  {
         if (holder.getClass() == senderViewHolder.class){
 
             ((senderViewHolder)holder).sendermsg.setText(messages.getMessage());
+           // ((senderViewHolder)holder).sendertime.setText(messages.getTimestamp().toString());
+            if(position == messagesList.size()-1){
+                if(messages.getSeen()){
+                    ((senderViewHolder)holder).senderseen.setVisibility(View.VISIBLE);
+                    ((senderViewHolder)holder).senderseen.setText("Seen");
+                }else {
+                    ((senderViewHolder)holder).senderseen.setVisibility(View.VISIBLE);
 
-        }
+                    ((senderViewHolder) holder).senderseen.setText("Delivered");
+
+                }
+
+            }
+
+            }
         else {
             ((recieverViewHolder)holder).recievermsg.setText(messages.getMessage());
+           // ((recieverViewHolder)holder).recievertime.setText(messages.getTimestamp().toString());
+
 
         }
+
+
 
 
     }
@@ -120,28 +137,31 @@ public class ChateAdapter extends RecyclerView.Adapter  {
         }
 
 
-       //return super.getItemViewType(position);
+        //return super.getItemViewType(position);
     }
 
     public class recieverViewHolder extends RecyclerView.ViewHolder{
 
-        TextView recievermsg,recievertime;
+        TextView recievermsg,recievertime,recieverseen;
 
         public recieverViewHolder (@NonNull View itemView) {
             super(itemView);
             recievermsg = itemView.findViewById(R.id.reciever_txt);
             recievertime = itemView.findViewById(R.id.reciever_time);
+            recieverseen = itemView.findViewById(R.id.txt_seen);
         }
     }
 
     public class senderViewHolder extends RecyclerView.ViewHolder{
 
-        TextView sendermsg,sendertime;
+        TextView sendermsg,sendertime,senderseen;
 
         public senderViewHolder (@NonNull View itemView) {
             super(itemView);
             sendermsg = itemView.findViewById(R.id.sender_txt);
             sendertime = itemView.findViewById(R.id.sender_time);
+
+            senderseen = itemView.findViewById(R.id.txt_seen1);
         }
     }
 

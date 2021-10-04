@@ -1,8 +1,5 @@
 package com.example.whatsapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,35 +7,17 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.whatsapp.Model.Users;
-import com.example.whatsapp.databinding.ActivityMainBinding;
 import com.example.whatsapp.databinding.ActivitySignUpBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.progressindicator.BaseProgressIndicator;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
    ActivitySignUpBinding binding;
@@ -85,6 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = binding.emailet.getText().toString();
                 String password = binding.passwordet.getText().toString();
+                String username = binding.usernameet.getText().toString();
 
                 if (TextUtils.isEmpty(email)|| !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     binding.emailet.setError("Please Enter a Valid Email");
@@ -112,7 +92,7 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if(task.isSuccessful()){
-                                    Users user = new Users(binding.usernameet.getText().toString(),email,password);
+                                    Users user = new Users(email ,password ,username);
                                     String id = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(user);
                                     Toast.makeText(SignUpActivity.this,"Created successfuly", Toast.LENGTH_LONG).show();

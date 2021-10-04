@@ -2,6 +2,7 @@ package com.example.whatsapp.Model;
 
 public class Users {
     String ProfilePic,userName,email,password,userId,lastmessage,status;
+     Boolean state;
 
     public Users(String profilePic, String userName, String email, String password, String userId, String lastmessage , String status) {
         this.userName = userName;
@@ -13,14 +14,55 @@ public class Users {
         this.status = status;
     }
 
-    public Users(String userName, String email, String password) {
+    public Users(String profilePic, String userName, String email, String password, String userId, String lastmessage  , String status , Boolean state) {
+        this.userName = userName;
+        this.ProfilePic = profilePic;
+        this.email = email;
+        this.password = password;
+        this.userId = userId;
+        this.lastmessage = lastmessage;
+        this.state = state;
+        this.status = status;
+    }
+
+    public Users(String userName, String email, String password,String userId) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.userId = userId;
+    }
+    public Users(String userName, String email, String password,String userId,Boolean state) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.userId = userId;
+        this.state = state;
+    }
+
+//    public Users(String userName, String email, String password ) {
+//        this.userName = userName;
+//        this.email = email;
+//        this.password = password;
+//        this.userId = userId;
+//    }
+
+    public Users(String email,String password ,String userName) {
         this.userName = userName;
         this.email = email;
         this.password = password;
     }
 
+
     public Users( ) {
 
+    }
+
+    public Boolean getState() {
+        return state;
+    }
+
+    public void setState(Boolean state) {
+        this.state = state;
     }
 
     public String getStatus() {

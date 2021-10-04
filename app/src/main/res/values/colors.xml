@@ -21,6 +21,11 @@
     <color name="settingsIconColor">#0E8374</color>
     <color name="grayBackground">#BCBCBC</color>
     <color name="chatbackground">#AAAAAA</color>
+    <color name="grey">#5d615e</color>
+    <color name="green">#36ad54</color>
+
+
+
 
 
 </resources>

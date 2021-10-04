@@ -1,14 +1,14 @@
 package com.example.whatsapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.whatsapp.Model.Users;
 import com.example.whatsapp.databinding.ActivitySignInBinding;
@@ -90,7 +90,7 @@ public class SignInActivity extends AppCompatActivity {
                     return;
                 }
                 if(password.isEmpty()){
-                    binding.emailetsign.setError("Pleas enter your password");
+                    binding.passwordetsign.setError("Pleas enter your password");
                     return;
                 }
 

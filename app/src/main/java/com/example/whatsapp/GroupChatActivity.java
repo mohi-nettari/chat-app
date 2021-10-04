@@ -65,23 +65,24 @@ public class GroupChatActivity extends AppCompatActivity {
 
         database.getReference().child("GroupChat")
                 .addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                messagesList.clear();
-                for(DataSnapshot snapshot1 : snapshot.getChildren()){
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        messagesList.clear();
+                        for(DataSnapshot snapshot1 : snapshot.getChildren()){
 
-                Messages message = snapshot1.getValue(Messages.class);
-                    messagesList.add(message);
+                            Messages message = snapshot1.getValue(Messages.class);
+                            messagesList.add(message);
 
-                }
-                   chateAdapter.notifyDataSetChanged();
-            }
+                        }
+                        chateAdapter.notifyDataSetChanged();
+                    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+                    }
+                });
+
 
 
 //sendarrow Events
